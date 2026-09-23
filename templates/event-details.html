@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Details — Eventra</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="/" class="brand-logo">
+        <div class="brand-badge">✦</div>
+        <div>
+          <span>Eventra</span>
+          <div class="brand-tagline">Discover. Book. Experience.</div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/events" class="nav-link active">Events</a></li>
+        <li><a href="/bookings" class="nav-link">My Bookings</a></li>
+      </ul>
+      <a href="/bookings" class="btn-nav-bookings">
+        <span>🎟️</span> <span>My Tickets</span>
+      </a>
+    </div>
+  </nav>
+
+  <main class="container" id="event-detail-container" style="min-height: 70vh;">
+    <div class="loading-skeleton" style="padding: 4rem 0; text-align: center;">
+      <h2 style="font-size: 1.5rem; color: var(--text-muted);">Loading Event Details...</h2>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div>
+        <div class="brand-logo" style="font-size: 1.2rem; margin-bottom: 0.3rem;">
+          <div class="brand-badge" style="width: 28px; height: 28px; font-size: 0.9rem;">✦</div>
+          <span>Eventra</span>
+        </div>
+        <p style="font-size: 0.8rem; color: var(--text-dim);">Runtime Event Discovery & Ticket Booking Platform</p>
+      </div>
+      <div>
+        &copy; 2026 Eventra Platform. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const eventId = "{{ event_id }}";
+      initEventDetailsPage(eventId);
+    });
+  </script>
+</body>
+</html>

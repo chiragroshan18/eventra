@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Events — Eventra</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="/" class="brand-logo">
+        <div class="brand-badge">✦</div>
+        <div>
+          <span>Eventra</span>
+          <div class="brand-tagline">Discover. Book. Experience.</div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/events" class="nav-link active">Events</a></li>
+        <li><a href="/bookings" class="nav-link">My Bookings</a></li>
+      </ul>
+      <a href="/bookings" class="btn-nav-bookings">
+        <span>🎟️</span> <span>My Tickets</span>
+      </a>
+    </div>
+  </nav>
+
+  <main class="container" style="padding: 3rem 1.5rem;">
+    <div class="section-header">
+      <div>
+        <h1 class="section-title" style="font-size: 2.2rem;">Event Catalog</h1>
+        <p class="section-subtitle">Search, filter, and discover upcoming live events</p>
+      </div>
+    </div>
+
+    <!-- Filter Control Panel -->
+    <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: 1.5rem; border-radius: var(--radius-lg); margin-bottom: 2.5rem;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; align-items: flex-end;">
+        
+        <!-- Search Input -->
+        <div class="form-group" style="margin: 0;">
+          <label class="form-label" for="catalog-search-input">Keyword Search</label>
+          <input type="text" id="catalog-search-input" class="form-input" placeholder="Event, venue, city..." />
+        </div>
+
+        <!-- Category Dropdown -->
+        <div class="form-group" style="margin: 0;">
+          <label class="form-label" for="catalog-category-select">Category</label>
+          <select id="catalog-category-select" class="form-input" style="cursor: pointer;">
+            <option value="all">All Categories</option>
+            <option value="Music">Music</option>
+            <option value="Theatre">Theatre</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Sports">Sports</option>
+            <option value="Workshops">Workshops</option>
+            <option value="Business">Business</option>
+            <option value="Education">Education</option>
+            <option value="Festivals">Festivals</option>
+          </select>
+        </div>
+
+        <!-- Date Filter -->
+        <div class="form-group" style="margin: 0;">
+          <label class="form-label" for="catalog-date-input">Specific Date</label>
+          <input type="date" id="catalog-date-input" class="form-input" />
+        </div>
+
+        <!-- Price Range Filter -->
+        <div class="form-group" style="margin: 0;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <label class="form-label" for="catalog-price-input" style="margin:0;">Max Ticket Price</label>
+            <span id="price-val-display" style="font-size: 0.85rem; font-weight: 700; color: var(--accent-amber);">$400</span>
+          </div>
+          <input type="range" id="catalog-price-input" min="10" max="400" step="5" value="400" style="accent-color: var(--primary); margin-top: 0.5rem; width: 100%; cursor: pointer;" />
+        </div>
+
+        <!-- Availability Filter Checkbox & Reset Button -->
+        <div style="display: flex; gap: 1rem; align-items: center;">
+          <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: var(--text-muted); cursor: pointer; user-select: none;">
+            <input type="checkbox" id="catalog-avail-checkbox" style="accent-color: var(--primary); width: 16px; height: 16px;" />
+            Available Only
+          </label>
+          <button type="button" id="filter-reset-btn" class="btn-secondary" style="padding: 0.65rem 1rem; white-space: nowrap;">Reset Filters</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Catalog Grid -->
+    <div id="catalog-events-grid" class="events-grid">
+      <!-- Populated via JS -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div>
+        <div class="brand-logo" style="font-size: 1.2rem; margin-bottom: 0.3rem;">
+          <div class="brand-badge" style="width: 28px; height: 28px; font-size: 0.9rem;">✦</div>
+          <span>Eventra</span>
+        </div>
+        <p style="font-size: 0.8rem; color: var(--text-dim);">Runtime Event Discovery & Ticket Booking Platform</p>
+      </div>
+      <div>
+        &copy; 2026 Eventra Platform. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', initEventsPage);
+  </script>
+</body>
+</html>

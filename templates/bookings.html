@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Bookings Dashboard — Eventra</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="/" class="brand-logo">
+        <div class="brand-badge">✦</div>
+        <div>
+          <span>Eventra</span>
+          <div class="brand-tagline">Discover. Book. Experience.</div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/events" class="nav-link">Events</a></li>
+        <li><a href="/bookings" class="nav-link active">My Bookings</a></li>
+      </ul>
+      <a href="/events" class="btn-nav-bookings">
+        <span>🔍</span> <span>Explore Events</span>
+      </a>
+    </div>
+  </nav>
+
+  <main class="container" style="padding: 3rem 1.5rem;">
+    <div class="section-header">
+      <div>
+        <h1 class="section-title" style="font-size: 2.2rem;">My Bookings Dashboard</h1>
+        <p class="section-subtitle">Real-time overview of your reservations, digital tickets, and total booking value</p>
+      </div>
+    </div>
+
+    <!-- Live Metrics Overview (5 Cards) -->
+    <div class="metrics-banner">
+      <div class="metric-card">
+        <span class="metric-val" id="metric-total">0</span>
+        <span class="metric-title">Total Reservations</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-val" id="metric-confirmed" style="color: var(--status-confirmed-fg);">0</span>
+        <span class="metric-title">Confirmed Active</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-val" id="metric-cancelled" style="color: var(--status-cancelled-fg);">0</span>
+        <span class="metric-title">Cancelled</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-val" id="metric-tickets" style="color: var(--accent-cyan);">0</span>
+        <span class="metric-title">Tickets Booked</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-val" id="metric-value" style="color: var(--accent-amber);">$0.00</span>
+        <span class="metric-title">Total Booking Value</span>
+      </div>
+    </div>
+
+    <!-- Dashboard Controls: Search & Status Filters -->
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+      <!-- Filter Tabs -->
+      <div class="category-chips-bar" style="margin: 0; padding: 0;">
+        <button class="chip-item active" data-booking-status="all">All Reservations</button>
+        <button class="chip-item" data-booking-status="confirmed">Confirmed</button>
+        <button class="chip-item" data-booking-status="cancelled">Cancelled</button>
+      </div>
+
+      <!-- Dashboard Search Input -->
+      <div class="search-box-wrapper" style="max-width: 380px; width: 100%; padding: 0.35rem 0.75rem; margin: 0;">
+        <span>🔍</span>
+        <input type="text" id="dashboard-search-input" class="search-input-field" placeholder="Search by Booking ID, event, or guest..." style="padding: 0.5rem; font-size: 0.9rem;" />
+      </div>
+    </div>
+
+    <!-- Bookings Cards List Container -->
+    <div id="bookings-list-container" class="bookings-list">
+      <div class="loading-skeleton" style="padding: 3rem 0; text-align: center;">
+        <h3 style="color: var(--text-muted);">Loading reservations...</h3>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div>
+        <div class="brand-logo" style="font-size: 1.2rem; margin-bottom: 0.3rem;">
+          <div class="brand-badge" style="width: 28px; height: 28px; font-size: 0.9rem;">✦</div>
+          <span>Eventra</span>
+        </div>
+        <p style="font-size: 0.8rem; color: var(--text-dim);">Runtime Event Discovery & Ticket Booking Platform</p>
+      </div>
+      <div>
+        &copy; 2026 Eventra Platform. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', initBookingsPage);
+  </script>
+</body>
+</html>

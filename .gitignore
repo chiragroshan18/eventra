@@ -1,0 +1,19 @@
+# Python / Virtual Environments
+venv/
+.venv/
+env/
+.env
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Test & Cache Artifacts
+.pytest_cache/
+.coverage
+htmlcov/
