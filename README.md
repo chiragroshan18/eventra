@@ -1,66 +1,42 @@
-# Eventra
-Event Discovery & Ticket Booking Platform built with Flask and Vanilla JS.
+<div align="center">
+  <h1>✦ EVENTRA</h1>
+  <p><strong>Discover. Book. Experience.</strong></p>
+  <p>A Modern Event Discovery & Digital Ticket Booking Platform</p>
+</div>
 
-## Features
-- **Event Discovery:** Featured events, search, and category exploration across 8 event categories.
-- **Search & Filter:** Reactive filtering by keyword, category, date, price slider, and ticket availability.
-- **Event Details & Tickets:** Select General, Premium, or VIP ticket tiers with live subtotal and fee calculation.
-- **Digital Ticket:** Display digital ticket stub with QR visual, unique ID (`EVT-1001`), and browser print option.
-- **My Bookings Dashboard:** Customer dashboard with 5 summary metrics, status filtering (All, Confirmed, Cancelled), keyword search, and live cancellation.
-- **Runtime Memory:** Pure Python runtime state without database persistence.
+---
 
-## Tech Stack
-- **Frontend:** HTML5, CSS3, Vanilla JavaScript, Fetch API
-- **Backend:** Python 3, Flask
-- **Storage:** Python dictionaries and lists (Runtime memory)
+## 📌 Project Overview
 
-## Project Structure
-```text
-eventra/
-├── app.py                  # Flask server & REST API routes
-├── test_suite.py           # Exhaustive automated test suite
-├── requirements.txt        # Minimal Python dependencies
-├── README.md               # Technical documentation
-├── .gitignore              # Git exclusion rules
-├── templates/
-│   ├── index.html          # Homepage with Hero & Featured Events
-│   ├── events.html         # Catalog with search & filters
-│   ├── event-details.html  # Event details & ticket purchase form
-│   ├── bookings.html       # Customer Bookings Dashboard
-│   └── ticket.html         # Digital Ticket Stub view
-└── static/
-    ├── css/style.css       # Obsidian & electric visual theme
-    └── js/app.js           # Reusable API & UI controller modules
-```
+**Eventra** is a modern, full-stack event discovery and digital ticket booking web application developed for **Web Technology Mini Project 6**. 
 
-## How to Run
+The platform offers a complete event discovery and ticketing workflow—allowing users to explore live events across multiple categories, filter by date, price, or category, select custom ticket tiers (*General*, *Premium*, *VIP*), verify real-time availability, calculate totals with transparent booking fee structures, generate digital ticket stubs with QR visual matrixes, and manage reservations via a real-time Customer Booking Dashboard.
 
-Open **Windows PowerShell** and run:
+---
 
-```powershell
-cd C:\Users\rosha\eventra
-python -m pip install -r requirements.txt
-python app.py
-```
+## ✨ Key Features
 
-Then visit in your browser:
-`http://127.0.0.1:5000`
+- 🎭 **Event Discovery & Catalog:** Featured event showcases and a comprehensive catalog covering 8 event categories (*Music*, *Theatre*, *Comedy*, *Sports*, *Workshops*, *Business*, *Education*, *Festivals*).
+- 🔍 **Search & Reactive Filters:** Real-time search across event titles, cities, and venues, paired with category dropdowns, price range sliders, and availability toggles.
+- 🎟️ **Multi-Tier Ticket Selection:** Support for *General*, *Premium*, and *VIP* ticket tiers with real-time stock availability tracking and interactive quantity controls.
+- 💰 **Transparent Price Calculation:** Live price breakdowns displaying unit prices, selected quantity, subtotal, fixed booking fee, and total booking value.
+- 🎫 **Digital Ticket Stub System:** Printable digital ticket stub featuring unique booking IDs (`EVT-XXXX`), status indicators, guest details, demonstrative QR matrix visual, and browser print (`window.print()`) integration.
+- 📊 **Customer Booking Dashboard:** Summary metrics (*Total Reservations*, *Confirmed Active*, *Cancelled*, *Tickets Booked*, *Total Booking Value*), real-time status filter tabs (*All*, *Confirmed*, *Cancelled*), keyword search, and live booking cancellation (`Confirmed → Cancelled`) with automated stock restoration.
 
-To run the automated test suite:
-```powershell
-python test_suite.py
-```
+---
 
-## Main APIs
-- `GET /api/events` — Retrieve all events
-- `GET /api/events/<id>` — Get event details
-- `GET /api/events/search` — Search/filter events
-- `POST /api/bookings` — Create a new booking
-- `GET /api/bookings` — Get all bookings
-- `GET /api/bookings/<id>` — Get single booking details
-- `PATCH /api/bookings/<id>/cancel` — Cancel eligible booking
+## 🛠️ Technology Stack
 
-## Architecture
+| Layer | Technologies |
+|---|---|
+| **Frontend** | HTML5, CSS3 (Obsidian Dark Theme), Vanilla JavaScript (ES6+), Fetch API, CSS Grid & Flexbox |
+| **Backend** | Python 3, Flask Web Framework |
+| **Data Storage** | Pure Python Runtime Data Structures (`lists`, `dictionaries`) — *No Database Required* |
+| **Typography & Styling** | Google Fonts (*Space Grotesk*, *Plus Jakarta Sans*), Custom Ticket Stub & Glassmorphic Components |
+
+---
+
+## 🏗️ System Architecture
 
 ```mermaid
 flowchart LR
@@ -72,13 +48,73 @@ flowchart LR
     F -->|Render| T[Events / Booking Dashboard / Digital Ticket]
 ```
 
-## Complexity Analysis
-- **Search & Filter:** $O(n)$
-- **Booking ID Lookup:** Average $O(1)$ hash dictionary lookup
-- **Availability Update:** $O(1)$
-- **Space Complexity:** $O(n)$ runtime memory footprint
+---
 
-## Testing
-- **Automated Tests:** 43 Passed / 0 Failed
-- **Categories Tested:** 8/8
-- **Events Tested:** 10/10
+## 📁 Project Structure
+
+```text
+eventra/
+├── app.py                  # Flask application server & REST API endpoints
+├── test_suite.py           # End-to-end automated test runner
+├── requirements.txt        # Python dependency manifest (Flask>=3.0.0)
+├── README.md               # Professional project documentation
+├── .gitignore              # Git exclusion rules
+├── templates/
+│   ├── index.html          # Homepage with Hero, Category Chips & Featured Events
+│   ├── events.html         # Event Catalog with reactive search & filters
+│   ├── event-details.html  # Detailed event view & ticket selection form
+│   ├── bookings.html       # Customer Bookings Dashboard with metrics
+│   └── ticket.html         # Digital Ticket Stub view
+└── static/
+    ├── css/style.css       # Obsidian & electric visual design system
+    └── js/app.js           # Reusable API & UI controller modules
+```
+
+---
+
+## 🚀 How to Run the Project
+
+### Prerequisites
+- Python 3.8 or higher installed on your system.
+
+### Steps
+
+1. **Navigate to Project Directory:**
+   ```powershell
+   cd C:\Users\rosha\eventra
+   ```
+
+2. **Install Required Package:**
+   ```powershell
+   python -m pip install -r requirements.txt
+   ```
+
+3. **Start the Flask Web Server:**
+   ```powershell
+   python app.py
+   ```
+
+4. **Access the Application:**
+   Open your web browser and navigate to:
+   ```text
+   http://127.0.0.1:5000
+   ```
+
+---
+
+## 🔌 REST API Reference
+
+| Endpoint | Method | Description |
+|---|---|---|
+| `/api/events` | `GET` | Retrieve list of all predefined events |
+| `/api/events/<event_id>` | `GET` | Retrieve details for a specific event |
+| `/api/events/search` | `GET` | Search & filter events by query, category, date, price, or availability |
+| `/api/bookings` | `POST` | Submit customer details and create a new booking |
+| `/api/bookings` | `GET` | Retrieve all active customer bookings |
+| `/api/bookings/<booking_id>` | `GET` | Retrieve single booking details for digital ticket rendering |
+| `/api/bookings/<booking_id>/cancel` | `PATCH` | Cancel an eligible booking and restore ticket inventory |
+
+---
+
+## 📄 License & Credits
+Developed for **Web Technology Mini Project 6**. Created using Python, Flask, Vanilla JavaScript, and CSS3.
